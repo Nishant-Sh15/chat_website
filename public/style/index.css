@@ -1,0 +1,108 @@
+body{
+    background-color: floralwhite;
+    /* background-color: rgb(74, 3, 139); */
+    color: rgb(6, 6, 25);
+    margin: 0px;;
+    
+    height:80vh;
+}
+
+/* heading/header */
+.chitchat{
+    font-size: 4rem;
+    font-family: "Satisfy", cursive;
+    text-align: center;
+    margin: 1rem 0 0 0;
+}
+
+
+.container{
+    height:100%;
+    margin: 0.5rem 1rem 4rem 0rem;
+    display:grid;
+    grid-template-columns:0.5fr 3fr 5fr;
+    grid-template-rows :  repeat(5,1fr);
+}
+
+
+
+
+/* common  */
+.boxes{
+    padding:2rem 1rem;
+    color: white;
+    
+    border-radius: 3rem;
+    margin:10px;
+    grid-row:1/6;
+}
+.icon{
+    color:floralwhite;
+    font-size: 2rem;
+    
+}
+
+/* navbar */
+
+.navbar{
+    display:flex;
+    flex-direction:column;
+    justify-content: space-between;
+    align-items: center;
+    background-color:rgb(6, 6, 25);
+    
+}
+
+
+
+/* contacts */
+.contacts-heading{
+    display: flex;
+    justify-content: space-between;
+}
+.heading-chat{
+    font-size: 2rem;
+    margin:0;
+}
+.new-chat{
+    margin: 0;
+    color: rgb(6, 6, 25);
+}
+.new{
+    color: black;
+}
+
+.contact{
+    padding: 0.8rem 0;
+    display: flex;
+    background-color: #26161608;
+    border-radius: 0.8rem;
+}
+.contact-img{
+    border-radius: 100%;
+    height: 4rem;
+    margin-right: 1rem;
+}
+.contact-name{
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 0.5rem;
+}
+.contact-mssg{
+    margin: 0.5rem;
+    color: grey;
+}
+
+.contacts{
+    color: rgb(6, 6, 25); 
+}
+
+
+/* chatbox */
+.chatbox{
+    /* background-color: rgb(103 105 112 / 89%); */
+    /* background-color: rgb(255 255 255 / 89%); */
+    background-color: #bbbbbb57;
+    
+}
+
