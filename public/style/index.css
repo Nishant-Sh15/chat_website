@@ -1,10 +1,11 @@
 body{
     background-color: floralwhite;
     /* background-color: rgb(74, 3, 139); */
+    overflow-y: hidden;
     color: rgb(6, 6, 25);
     margin: 0px;;
-    
-    height:80vh;
+    padding: 1rem 0;
+    height:95vh;
 }
 
 /* heading/header */
@@ -20,7 +21,7 @@ body{
     height:100%;
     margin: 0.5rem 1rem 4rem 0rem;
     display:grid;
-    grid-template-columns:0.5fr 3fr 5fr;
+    grid-template-columns:0.5fr 2.5fr 5fr;
     grid-template-rows :  repeat(5,1fr);
 }
 
@@ -29,7 +30,7 @@ body{
 
 /* common  */
 .boxes{
-    padding:2rem 1rem;
+    padding:1rem 1rem;
     color: white;
     
     border-radius: 3rem;
@@ -40,6 +41,9 @@ body{
     color:floralwhite;
     font-size: 2rem;
     
+}
+a{
+    text-decoration: none;
 }
 
 /* navbar */
@@ -56,9 +60,30 @@ body{
 
 
 /* contacts */
+.contacts{
+    color: rgb(6, 6, 25);
+    display: grid;
+    grid-template-rows: repeat(12,1fr);
+    grid-template-columns: 1fr;
+}
 .contacts-heading{
     display: flex;
     justify-content: space-between;
+    position: sticky;
+    top: 0;
+    grid-row: 1/2;
+}
+#contacts-heading-input{
+    border-radius: 1rem;
+    border: none;
+    font-size: 0.9rem;
+    padding: 0.2rem;
+    padding-left: 0.8rem;
+    border: 1px solid #bbbbbb57;
+    height: 2rem;
+}
+#contacts-heading-input:focus{
+    outline: none;
 }
 .heading-chat{
     font-size: 2rem;
@@ -74,35 +99,206 @@ body{
 
 .contact{
     padding: 0.8rem 0;
-    display: flex;
+    /* display: flex; */
+    display: grid;
+    grid-template-columns: 5rem 1fr 1rem;
     background-color: #26161608;
     border-radius: 0.8rem;
+    margin: 0.5rem 0;
+    overflow-x: hidden;
 }
 .contact-img{
     border-radius: 100%;
     height: 4rem;
     margin-right: 1rem;
 }
+/* .contact-description{
+    display: flex;
+    flex-direction: column;
+} */
 .contact-name{
     font-size: 1.5rem;
     font-weight: bold;
     margin: 0.5rem;
+    color: #060619;
 }
 .contact-mssg{
     margin: 0.5rem;
     color: grey;
 }
+.contactbox a{
+    color: black;
+}
+#del-contact{
+    align-self: flex-start;
+    margin: 1rem 0;
+    visibility: hidden;
+}
+#del-contact:focus,#del-contact:active{
+    color: rgb(6, 6, 25);
+    outline: none;
+}
+#del-contact:hover{
+    color: black;
+}
 
-.contacts{
-    color: rgb(6, 6, 25); 
+.contactbox{
+    grid-row:2/13; 
+    overflow-y: scroll;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    display: flex; 
+    flex-direction: column;
+}
+.contactbox::-webkit-scrollbar{
+    display: none;
 }
 
 
+
 /* chatbox */
+.chat-box-img{
+    height: 3rem;
+}
 .chatbox{
     /* background-color: rgb(103 105 112 / 89%); */
     /* background-color: rgb(255 255 255 / 89%); */
-    background-color: #bbbbbb57;
+    display: grid;
+    grid-template-rows: repeat(12,1fr);
+    grid-template-columns: 1fr;
     
+    
+}
+.chatbox-heading{
+    display: flex;
+    justify-content: space-between;
+    grid-column: 1/2;
+    grid-row: 1/2;
+    background-color: floralwhite;
+    color:rgb(6, 6, 25);
+}
+.chatbox-heading p{
+    font-size: 2rem;
+    padding: 0;
+    margin: 0;
+
+}
+#more{
+    color: rgb(6, 6, 25);
+}
+
+/* chat */
+.chat{
+    grid-area: 2/1/13/2;
+    background-color: #bbbbbb57;
+    padding: 1rem;
+    margin: 0;
+    display: grid;
+    grid-template-rows: repeat(10,1fr);
+
+    
+}
+.messages{
+    display: flex;
+    flex-direction: column-reverse;
+    overflow-y: scroll;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    grid-row: 1/10;
+    position: relative;
+}
+.messages::-webkit-scrollbar{display: none;}
+.me,.other{
+    display: flex;
+}
+.me,.other{
+    align-self: flex-end;
+    background-color: rgb(114, 50, 243);
+    color: white;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 1rem;
+    margin: 0.5rem;
+    position:relative;
+    cursor: pointer;
+}
+.other{
+    align-self: flex-start;
+    background-color: floralwhite;
+    color: rgb(6, 6, 25);
+    
+}
+.me-i{
+    visibility: hidden;
+}
+.other-i{
+    color: rgb(6, 6, 25);
+    visibility: hidden;
+}
+.me div{
+    text-align: right;
+}
+.me-msg-options div,.other-msg-options div{
+    /* display: inline-block; */
+    margin:0.3rem 0;
+}
+.me-msg-options,.other-msg-options{
+    background-color:floralwhite;
+    color: black;
+    display: flex;
+    visibility: hidden;
+    align-self: flex-end;
+    flex-direction: column;
+    display: inline-block;
+    position:absolute;
+    border-radius: 1rem;
+    padding: 0.2rem;
+    top: -2rem;
+    z-index: 10;
+    right: 0;
+    cursor: pointer;
+}
+.other-msg-options{
+    top: -1.4rem;
+    right: -2.3rem;
+}
+.keyboard{
+    grid-row: 10/11;
+    margin: 0.8rem;
+    display: flex;
+    justify-content: space-around;
+}
+.type{
+    width: 90%;
+    border-radius: 1rem;
+    border: none;
+    padding: 0.8rem;
+    font-size: 0.9rem;
+}
+.type:focus{
+    outline: none;
+}
+
+
+
+/* error message */
+.locals-mssg{
+    display: flex;
+    justify-content: center;
+}
+.locals-box{
+    width: 33%;
+    padding: 1rem;
+    font-size: 1rem;
+    display: flex;
+    justify-content: space-between;
+    color: rgb(6, 6, 25);
+    border: 4px solid rgb(6, 6, 25);
+    border-top: none;
+    border-bottom-right-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+}
+.cross{
+    color: rgb(6, 6, 25);
 }
 

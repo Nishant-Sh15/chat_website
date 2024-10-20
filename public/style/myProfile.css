@@ -1,0 +1,122 @@
+body{
+    height: 100vh;
+    overflow: hidden;
+    margin: 0;
+    background-color: blueviolet;
+    /* display: flex;
+    justify-content: center;
+    align-items:center; */
+    display: grid;
+    grid-template-rows: 0.5fr 1.5fr 1fr 1fr 0.5fr;
+    grid-template-columns: 0.5fr 0.5fr 3fr 1fr;
+    /* position: relative; */
+}
+.purple{
+    grid-area: 1/1/3/5;
+}
+.white{
+    grid-area: 3/1/7/5;
+    background-color: white;
+}
+
+.container{
+    position: relative;
+    grid-area: 2/3/5/4;
+    background-color: floralwhite;
+    box-shadow: 0 0 2rem 1rem rgb(174, 171, 171);
+    border-radius: 3rem;
+    display: grid;
+    grid-template-rows: 0.5fr 1fr;
+    grid-template-columns: 1fr;
+
+    
+    /* overflow-y: scroll; */
+}
+.info{
+    position: relative;
+    grid-area: 1/1/2/2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.img{
+    position: relative;
+    top: -1.5rem;
+    border-radius: 100%;
+    height: 9rem;
+    /* margin: 1rem; */
+}
+.username{
+    margin: 0;
+    font-size: 2rem;
+}
+.name{
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+}
+.bio{
+    margin-top: 00;
+    font-size: 1rem;
+}
+.posts{
+    height:100%;
+    /* grid-area: 4/2/7/3; */
+    /* grid-area: 2/1/3/2; */
+    grid-row: 2/3;
+    overflow-y: scroll;
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: 1fr;
+    overflow-y: scroll;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    /* padding: 1rem; */
+    /* display: flex;
+    justify-content: center; */
+}
+.posts::-webkit-scrollbar{
+    display: none;
+}
+.posts-div{
+padding: 1rem;
+    grid-column: 2/3;
+    grid-row: 1/2;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 1rem;
+    /* grid-template-columns: 1fr 1fr 1fr; */
+    overflow-y: scroll;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+.posts-div::-webkit-scrollbar{
+    display: none;
+}
+.post{
+    height: 5rem;
+    margin: 0.5rem;
+    border-radius: 0.5rem;
+}
+.more{
+    position: absolute;
+    top: 2rem;
+    right: 0; 
+    padding: 3rem;
+}
+.icon{
+    font-size: 2rem;
+}
+.options{
+    position: absolute;
+    top: 5rem;
+    left: -1rem;
+    border: 1px solid grey;
+    width: 6rem;
+    border-radius: 1rem;
+    padding: 0.5rem;
+    visibility: hidden;
+}
+.options div{
+    margin: 0.3rem;
+}

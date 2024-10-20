@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>chat_web</title>
+</head>
+<link rel="stylesheet" href="/style/index.css">
+<link rel="stylesheet" href="/style/profile.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+<!-- font  -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Satisfy&display=swap" rel="stylesheet">
+
+<body>
+
+    <p class="chitchat"></p>
+    <div class="container">
+
+        <!-- navbar -->
+
+        <div class="navbar boxes">
+
+            <!-- home -->
+            <a href="#"><i class="fa-solid fa-house icon"></i></a>
+            <!-- stories/status -->
+            <a href="#"><i class="fa-solid fa-comment icon"></i></a>
+            <!-- archived chats -->
+            <a href="#"><i class="fa-solid fa-folder-plus icon"></i></a>
+            <!-- pinned chats -->
+            <a href="#"><i class="fas fa-thumbtack icon"></i></a>
+            <!-- starred message -->
+            <a href="#"><i class="fa-solid fa-star icon"></i></a>
+            <!-- settings -->
+            <a href="#"><i class="fa-solid fa-gear icon"></i></a>
+        </div>
+
+        <!-- profile -->
+        <div class="user-profile">
+            
+            <div class="user">
+                <!--profile  -->
+                <div class="profile">
+                    <div class="info">
+                        <div class="profile-img-div">
+                            <img src="<%=con.profile[0]%>" alt="" class="profile-img">
+                        </div>
+                        <div class="description">
+                            <div>
+                                <p class="user-name"><%=con.username%></p>
+                                <p class="user-bio"><%=con.bio%></p>
+                                <a href="/newChat/<%=user._id%>/<%=con._id%>" id="start-chat">message</a>
+                            </div>
+                            <!-- <div>blooking cool</div> -->
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+            <!-- posts -->
+            <div class="posts">
+                <div class="post-div">
+                    <%for(i=1;i<con.profile.length;i++){%>
+                        <div class="post-img">
+                            <img src="<%con.profile[i]%>" alt="" class="img">
+                        </div>
+                    <%}%>
+                </div>
+                
+            </div>
+        </div>
+
+
+    </div>
+</body>

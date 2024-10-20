@@ -1,0 +1,74 @@
+.container{
+    grid-template-columns:0.5fr 8fr;
+}
+.user-profile{
+    grid-area: 1/2/6/4;
+    display: grid;
+    grid-template-rows: repeat(6,1fr);
+    grid-template-columns: 1fr 3fr 1fr;
+
+}
+.user{
+    display: flex;
+    /* flex-direction: column;
+    align-items: center; */
+    justify-content: center;
+    grid-row: 1/2;
+    grid-column: 1/4;
+}
+/* .profile{
+    display: flex;
+    justify-content: center;
+} */
+.info{
+    
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+}
+.profile-img-div{
+    display: flex;
+    justify-content: flex-end;
+}
+.profile-img{
+    height: 8rem;
+    border-radius: 100%;
+}
+.description{
+    padding-left: 2rem;
+    font-size: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.user-bio,.user-name{
+    margin: 0;
+}
+.user-bio{
+    font-size:1rem
+}
+.posts{
+    grid-row: 2/6;
+    grid-column: 2/3;
+    display: flex;
+    justify-content: center;
+    padding-top: 0.5rem;
+    /* display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(4,1fr); */
+}
+.post-div{
+    display: flex;
+    flex-wrap: wrap;
+    border-top: 1px solid black;
+    padding-top: 0.5rem;
+
+}
+.post-img{
+    height: 7rem;
+    padding: 0 1rem;
+    border-radius: 1rem;
+}
+.img{
+    border-radius: 1rem;
+    height: 6rem;
+}

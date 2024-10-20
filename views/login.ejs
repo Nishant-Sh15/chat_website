@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="/style/login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Satisfy&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+    <%if(error!=""){%>
+        <div class="locals-mssg">
+            <div class="locals-box">
+                <div class="msg"><%=error%></div>
+                <i class="fa-solid fa-xmark icon"></i>
+            </div>
+        </div>
+    <%}%>
+    <p class="chitchat">CHIT-CHAT</p>
+    <div class="box">
+        <div class="container">
+            <div class="login">
+                <h class="heading">LOGIN</h>
+                <form method="post" action="/Login" >
+                    <div class="form">
+                        <input type="text" name="username" placeholder="Username" class="input">
+                        <input type="password" placeholder="password" class="input" name="password" >
+                        <button class="submit">Login Now</button>
+                        <a href="/Signup"> Create an account</a>
+                    </div>
+                </form>
+
+
+            </div>
+            <img src="/images/login.png" id="img" alt="">
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="/js/login.js"></script>
+</body>
+
+</html>

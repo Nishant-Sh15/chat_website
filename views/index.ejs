@@ -1,27 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>chat_web</title>
 </head>
-<link rel="stylesheet" href="./style/index.css">
+<link rel="stylesheet" href="/style/index.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 
 <!-- font  -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Satisfy&display=swap" rel="stylesheet">
+
 <body>
-    <p class="chitchat">CHIT-CHAT</p>
+
+    <p class="chitchat">
+        <%if(error!=""){%>
+            <div class="locals-mssg">
+                <div class="locals-box">
+                    <div class="msg">
+                        <%=error%>
+                    </div>
+                    <i class="fa-solid fa-xmark icon cross"></i>
+                </div>
+            </div>
+            <%}%>
+    </p>
     <div class="container">
 
-<!-- navbar -->
+        <!-- navbar -->
 
         <div class="navbar boxes">
-            
+
             <!-- home -->
-            <a href="#"><i class="fa-solid fa-house icon"></i></a>
+            <a href="/home/<%=user._id%>"><i class="fa-solid fa-house icon"></i></a>
             <!-- stories/status -->
             <a href="#"><i class="fa-solid fa-comment icon"></i></a>
             <!-- archived chats -->
@@ -29,32 +43,125 @@
             <!-- pinned chats -->
             <a href="#"><i class="fas fa-thumbtack icon"></i></a>
             <!-- starred message -->
-             <a href="#"><i class="fa-solid fa-star icon"></i></a>
+            <a href="#"><i class="fa-solid fa-star icon"></i></a>
             <!-- settings -->
-            <a href="#"><i class="fa-solid fa-gear icon"></i></a>
+            <a href="/profile/my"><i class="fa-solid fa-gear icon"></i></a>
         </div>
 
-<!-- contacts/chats -->
+        <!-- contacts/chats -->
 
         <div class="contacts boxes">
+
+            <!--contact heading  -->
             <div class="contacts-heading">
                 <p class="heading-chat">Chats</p>
-                <p class="new-chat"><i class="fa-solid fa-circle-plus icon new"></i> </p>
+                <input type="text" id="contacts-heading-input">
+                <a href="" class="new-chat"><i class="fa-solid fa-circle-plus icon new"></i> </a>
             </div>
 
-            <hr>
 
-            <div class="contact">
-                <img src="./images/no_profile.PNG" alt="" class="contact-img">
-                <div class="contact-description">
-                    <p class="contact-name">rahul</p>
-                    <p class="contact-mssg">hello</p>
-                </div>
+            <div class="contactbox">
+
+                <!-- contact -->
+                <%for(let i=0;i<contacts.length ;i++){%>
+
+                    <a href="/show/<%=user._id%>/<%=contacts[i].person._id%>" id="<%=contacts[i].person._id%>">
+                        <div class="contact">
+                            <img src="/images/no_profile.PNG" alt="" class="contact-img">
+                            <div class="contact-description" id="<%=contacts[i].person._id%>">
+                                <p class="contact-name">
+                                    <%=contacts[i].person.username%>
+                                </p>
+                                <p class="contact-mssg">
+                                    <%if(chats[i]!=null){%>
+                                        <%=chats[i].message%>
+                                            <%}else{}%>
+                                </p>
+                            </div>
+                            <i class="fa-solid fa-trash" id="del-contact"></i>
+                        </div>
+
+                    </a>
+                    <%}%>
+
             </div>
 
-            <div class="chat"></div>
         </div>
-        <div class="chatbox boxes">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempore, dignissimos?</div>
+
+        <!-- chatbox -->
+
+        <div class="chatbox boxes ">
+            <!-- chatbox heading -->
+            <%if(conv!=null){%>
+                <div class="chatbox-heading">
+                    <img src="<%=con.profile[0]%>" alt="" class="contact-img chat-box-img">
+                    <p>
+                        <%=con.username%>
+                    </p>
+                    <i class="fas fa-ellipsis-v icon" id="more"></i>
+                </div>
+                <%}%>
+                    <!-- chats -->
+                    <div class="chat boxes">
+                        <div class="messages">
+                            <%if(conv!=null){ for(let mssg of conv.mssgs){ if(mssg.author.equals(user._id)){%>
+                                <div class="me">
+                                    <div>
+                                        <%=mssg.message%>
+                                    </div>
+                                    <i class="fa-solid fa-caret-down me-i" id="<%=mssg._id%>"></i>
+                                    <div class="me-msg-options">
+                                        <div>delete</div>
+                                        <div>unsend</div>
+                                    </div>
+                                </div>
+
+                                <%}else{%>
+                                    <div class="other">
+                                        <div>
+                                            <%=mssg.message%>
+                                        </div>
+                                        <i class="fa-solid fa-caret-down other-i" id="<%=mssg._id%>"></i>
+                                        <div class="other-msg-options">
+                                            <div>delete</div>
+                                        </div>
+                                    </div>
+                                    <%}%>
+                                        <%}%>
+                        </div>
+                        <div class="keyboard">
+
+                            <!-- input -->
+                            <input type="text" class="type" id="type">
+                            <!-- send -->
+                            <i class="fa-solid fa-paper-plane icon new send"></i>
+
+
+                        </div>
+                        <%}%>
+                    </div>
+
+
+        </div>
+
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <script>
+        let usrId = '<%=user._id%>';
+        let conId = '<%=con._id%>';
+        let conv = `<%=conv%>`;
+        let error = `<%=error%>`;
+    </script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+    const socket = io();
+    socket.emit("join",usrId);
+    </script>
+
+    <script src="/js/index.js?v=1.0"></script>
+    <script src="/js/message.js?v=1.0"></script>
 </body>
+
 </html>
