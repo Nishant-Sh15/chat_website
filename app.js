@@ -165,6 +165,7 @@ io.on('connection',(socket)=>{
             io.to(con.socketId).emit("recieveMessage",{
                 message,
                 msgId,
+                contact:usrId
             });
         }else{
             console.log("user not connected");

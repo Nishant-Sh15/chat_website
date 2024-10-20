@@ -111,6 +111,35 @@ if (conv!=null) {
 
     });
     // =======================================================================
+
+
+    // ----------------------recieve message socket----------------------------------
+    socket.on("recieveMessage",(data)=>{
+        let {contact,message,msgId}=data;
+        if(contact==conId){
+            let newd = document.createElement('div');
+            newd.classList.add("other");
+            msgbox.insertAdjacentElement('afterbegin', newd);
+            newd.innerHTML = `<div>${message}</div>
+                                        <i class="fa-solid fa-caret-down other-i" id="${msgId}"></i>
+                                        <div class="other-msg-options">
+                                            <div>delete</div>
+                                        </div>`
+
+            showevent(newd);
+            hideevent(newd);
+            showoptions(newd);
+            delreq(newd);
+        }
+        let contactDesc = document.getElementById(`${contact}`);
+        if(c!=contactDesc){
+            contactDesc.style.order=index;
+            index--;
+            c=contactDesc;
+        }
+        // console.log(contactDesc);
+        contactDesc.children[0].children[1].children[1].innerText =message;
+    })
 }
 
 
