@@ -21,15 +21,16 @@
         <div class="more">
             <i class="fa-solid fa-ellipsis-vertical icon"></i>
             <div class="options">
-                <div>change info</div><hr>
-                <div>create post</div>
+                <a href="/profile/my/edit/<%=user._id%>"><div>change info</div></a>
+                <hr>
+                <a href="/profile/post/<%=user._id%>"><div>create post</div></a>
             </div>
         </div>
         <div class="info">
 
             <!-- user information -->
 
-            <img src="<%=user.profile[0]%>" alt="" class="img">
+            <img src="<%=user.profile%>" alt="" class="img">
             
             <h1 class="username"><%=user.username%></h1>
             <p class="name"><%=user.name%></p>
@@ -40,8 +41,8 @@
         <!-- posts -->
         <div class="posts">
             <div class="posts-div">
-                    <%for(post in user.posts){%>
-                        <img src="<%=post%>" alt="">
+                    <%for(post of user.posts){%>
+                        <img src="<%=post.url%>" alt="" class="post">
                     <%}%>
 
             </div>
@@ -49,7 +50,7 @@
         
     </div>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-<script src="/js/myProfile.js"></script>
+    <script src="/js/myProfile.js"></script>
 </body>
 
 </html>

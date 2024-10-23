@@ -45,7 +45,7 @@
             <!-- starred message -->
             <a href="#"><i class="fa-solid fa-star icon"></i></a>
             <!-- settings -->
-            <a href="/profile/my"><i class="fa-solid fa-gear icon"></i></a>
+            <a href="/profile/my/<%=user._id%>"><i class="fa-solid fa-gear icon"></i></a>
         </div>
 
         <!-- contacts/chats -->
@@ -67,7 +67,7 @@
 
                     <a href="/show/<%=user._id%>/<%=contacts[i].person._id%>" id="<%=contacts[i].person._id%>">
                         <div class="contact">
-                            <img src="/images/no_profile.PNG" alt="" class="contact-img">
+                            <img src="<%=contacts[i].person.profile%>" alt="" class="contact-img">
                             <div class="contact-description" id="<%=contacts[i].person._id%>">
                                 <p class="contact-name">
                                     <%=contacts[i].person.username%>
@@ -94,7 +94,7 @@
             <!-- chatbox heading -->
             <%if(conv!=null){%>
                 <div class="chatbox-heading">
-                    <img src="<%=con.profile[0]%>" alt="" class="contact-img chat-box-img">
+                    <img src="<%=con.profile%>" alt="" class="contact-img chat-box-img">
                     <p>
                         <%=con.username%>
                     </p>

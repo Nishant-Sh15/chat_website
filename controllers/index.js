@@ -20,7 +20,7 @@ module.exports.home=async (req,res,next)=>{
     }
     let conv=null;
     let con=user;
-    console.log(res.locals.error);
+    console.log(contacts.arr);
     res.render("index.ejs",{user,contacts:contacts.arr,chats,conv,con});
 }
 // ----------------------------------
@@ -39,7 +39,7 @@ module.exports.show=async (req,res,next)=>{
         }
     }
     let conv=await Chat.findById(chatId).populate({path:"mssgs",model:"Message"});
-    let con=await User.findById(conId);
+    let con=await User.findById(conId); 
     let contacts=await Contact.findById(user.contacts).populate({path:"arr.person",model:"User"})
                               .populate({path:"arr.conversation",model:"Chat"});
     let chats=[];

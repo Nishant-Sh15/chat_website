@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit_Info</title>
+
+    <link rel="stylesheet" href="/style/login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Satisfy&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            height: 90vh;
+        }
+
+        .box {
+            height: 80vh;
+        }
+
+        .login {
+            grid-area: 1/1/2/3;
+            border-radius: 2rem;
+        }
+    </style>
+
+</head>
+
+<body>
+    <p class="chitchat">CHIT-CHAT</p>
+    <div class="box">
+        <div class="container">
+            <div class="login">
+                <h class="heading"></h>
+                <form  action="/profile/my/edit/<%=user._id%>?_method=PUT" method="POST" enctype="multipart/form-data">
+                    <div class="form">
+
+                        <label for="file-input" class="input"><i class="fa-solid fa-upload"></i></label>
+                        <input type="file" name="profile" id="file-input" style="display:none;" >
+                        <input type="text" placeholder="name" class="input" name="name" value="<%=user.name%>">
+                        <input type="text" placeholder="bio"  class="input" name="bio" value="<%=user.bio%>">
+
+                        <button class="submit">Save</button>
+                    </div>
+                </form>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

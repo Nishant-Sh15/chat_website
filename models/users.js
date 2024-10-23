@@ -8,13 +8,11 @@ const userSchema = mongoose.Schema({
         unique: true
     },
     name: String,
-    profile: [{
-        type: String
-    }],
+    profile: String,
     bio: String,
     posts: [{
-        type: String,
-
+        url: String,
+        caption:String
     }],
     contacts: {
         type: mongoose.Schema.Types.ObjectId,

@@ -10,7 +10,7 @@ module.exports.signup=async (req,res,next)=>{
     try{
         const {userName,password}=req.body;
         // console.log(req.body);
-        let newUser=new User({username:userName,posts:[],name:"",profile:"/images/no_profile.PNG",bio:"",socketId:""});
+        let newUser=new User({username:userName,posts:[],name:"",profile:'https://res.cloudinary.com/dvvgsyiu8/image/upload/v1729619820/no_profile_ayr2np.png',bio:"",socketId:""});
         let usrCon=new Contact({arr:[]});
         await usrCon.save();
         newUser.contacts=usrCon;
