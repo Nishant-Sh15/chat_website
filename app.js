@@ -46,7 +46,7 @@ const upload = multer({ storage });
 
 // ------------connecting to mongoose database----
 async function main() {
-    mongoose.connect("mongodb://127.0.0.1:27017/gossip");
+    mongoose.connect(process.env.ATLASDB_URL);
 }
 main()
     .then(() => { console.log("connection to mongoose successfully done") })
