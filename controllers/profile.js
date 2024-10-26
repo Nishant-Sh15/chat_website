@@ -8,7 +8,7 @@ module.exports.show=async(req,res,next)=>{
     let user=await User.findById(usrId);
     let con=await User.findOne({username:conName});
     if(con!=null){
-        console.log(con.posts);
+        // console.log(con.posts);
         res.render("profile.ejs",{con,user});
     }else{
         req.flash("error","this user doesn't exist");

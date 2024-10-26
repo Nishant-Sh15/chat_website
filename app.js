@@ -170,7 +170,7 @@ app.post("/Login", passport.authenticate("local", { failureRedirect: "/Login", f
 
 // -----------------------socket io connection------------------------------
 io.on('connection', (socket) => {
-    console.log("a user connected");
+    // console.log("a user connected");
 
     // ----------------storing socket id--------------
     socket.on("join", async (usrId) => {
@@ -182,7 +182,7 @@ io.on('connection', (socket) => {
 
     // -------------sending message----------------------
     socket.on("sendMessage", async (data) => {
-        console.log("sending message");
+        // console.log("sending message");
         let { usrId, conId, message, msgId } = data;
 
         let con = await User.findById(conId);
@@ -193,17 +193,17 @@ io.on('connection', (socket) => {
                 contact: usrId
             });
         } else {
-            console.log("user not connected");
+            // console.log("user not connected");
         }
     });
 
 
     // -------------------while disconnecting--------
     socket.on("disconnect", async () => {
-        console.log(socket.id);
+        // console.log(socket.id);
         let usr = await User.findOne({ socketId: socket.id });
         usr.socketId = "";
-        console.log(usr);
+        // console.log(usr);
         await usr.save();
     });
 });

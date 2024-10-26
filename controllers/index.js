@@ -20,7 +20,7 @@ module.exports.home=async (req,res,next)=>{
     }
     let conv=null;
     let con=user;
-    console.log(contacts.arr);
+    // console.log(contacts.arr);
     res.render("index.ejs",{user,contacts:contacts.arr,chats,conv,con});
 }
 // ----------------------------------
