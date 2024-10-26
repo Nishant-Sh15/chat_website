@@ -1,4 +1,5 @@
 require("dotenv").config();
+
 const express = require("express");
 const http = require("http");
 const socketIo = require("socket.io");
@@ -127,7 +128,7 @@ app.get("/newChat/:usrId/:conId", isLoggedIn, isOwner, wrapAsync(contact.create)
 
 
 // ------------creating a post--------------------------
-app.get("/profile/post/:usrId",isLoggedIn,isOwner,wrapAsync(profile.showPostForm));
+app.get("/profile/post/:usrId",isLoggedIn,isOwner,profile.showPostForm);
 app.post("/profile/post/:usrId",isLoggedIn,isOwner, upload.single("posts"),wrapAsync(profile.createPost));
 
 // ----------------------------edit profile information-----------------

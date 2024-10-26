@@ -19,7 +19,7 @@ module.exports.show=async(req,res,next)=>{
 // ---------------------------------------------
 
 // -----------render edit page-----------------------
-module.exports.showEditPage=async (req, res) => {
+module.exports.showEditPage=async (req, res,next) => {
     let { usrId } = req.params;
     let user = await User.findById(usrId);
     res.render("changeInfo.ejs", { user });
@@ -27,7 +27,7 @@ module.exports.showEditPage=async (req, res) => {
 // -----------------------------------------------
 
 // ------------------------put request for editting-----------
-module.exports.edit=async (req, res) => {
+module.exports.edit=async (req, res,next) => {
     let {usrId} = req.params;
     let { name, bio } = req.body;
     let user = await User.findById(usrId);
@@ -43,7 +43,7 @@ module.exports.edit=async (req, res) => {
 
 
 // ----------------show my profile------------
-module.exports.my=async (req, res) => {
+module.exports.my=async (req, res,next) => {
     let {usrId} = req.params;
     let user = await User.findById(usrId);
     res.render("myProfile.ejs", { user });
@@ -52,14 +52,14 @@ module.exports.my=async (req, res) => {
 
 
 // ---------------show add post form----------
-module.exports.showPostForm=(req,res)=>{
+module.exports.showPostForm=(req,res,next)=>{
     let {usrId}=req.params;
     res.render("post.ejs",{usrId});
 }
 // --------------------------------------------
 
 // ----------------create post------------------
-module.exports.createPost=async(req,res)=>{
+module.exports.createPost=async(req,res,next)=>{
     console.log("inside");
     let {usrId}=req.params;
     let user=await User.findById(usrId);
