@@ -1,14 +1,20 @@
 body{
     background-color: rgb(188 188 214);
     height: 95vh;
-    overflow-y: hidden;
+    overflow-y:scroll;
+    scrollbar-width:0px;
+    -ms-overflow-style: none;
     display: grid;
     grid-template-rows: 1fr 6fr;
     grid-template-columns: 1fr;
 }
+body::-webkit-scrollbar{
+    display: none;
+}
 .navbar{
     display: flex;
     justify-content: space-between;
+    align-items: center;
     font-family: "Satisfy", cursive;
     padding: 1rem 2rem 0 0px;
     color: floralwhite;
@@ -26,6 +32,9 @@ body{
     font-size: 2rem;
     padding: 0.5rem 2rem;
     color: rgb(180, 111, 180);
+}
+.login{
+    margin-top: 1.5rem;
 }
 .container{
     padding: 2rem;
@@ -73,4 +82,114 @@ body{
     box-shadow: 0 0 2rem 1rem rgb(233, 237, 241);
     border-radius: 3rem;
     height: 100%;
+}
+
+
+@media(max-width: 1250px){
+    .container{
+        grid-template-columns: 1fr 1.25fr;
+    }
+}
+@media(max-width: 1125px){
+    .container{
+        grid-template-columns:1fr 1fr;
+    }
+}
+@media(max-width:1010px){
+    .container{
+        grid-template-columns: 1fr 0.75fr;
+    }
+    .image{
+        height: 70%;
+    }
+}
+@media(max-width:900px){
+    .para{
+        font-size: 1.2rem;
+    }
+}
+@media(max-width:750px){
+    .container{
+        grid-template-columns: 1fr;
+    }
+    .img{
+        display: none;
+    }
+}
+@media(max-width:600px){
+    .name{
+        font-size: 3rem;
+        text-align: left;
+        padding-left: 2rem;
+    }
+    .login{
+        margin-top: 1rem;
+    }
+    .link{
+        font-size: 1.5rem;
+    }
+    .getting-started{
+        justify-content: flex-start;
+    }
+    
+}
+@media(max-width:500px){
+    .heading{
+        font-size:2rem
+    }
+    .para{
+        font-size: 1rem;
+    }
+    .start,.link{
+        font-size: 1.25rem;
+    }
+    .login{
+        margin: 0;
+    }
+    .name{
+        font-size:2.5rem;
+    }
+    .navbar{
+        padding: 0;
+    }
+}
+@media(max-width:350px){
+    .name{
+        font-size: 2rem;
+    }
+    .start,.link{
+        font-size: 1rem;
+    }
+    .para{
+        font-size: 0.8rem;
+    }
+    .heading{
+        font-size: 1.5rem;
+    }
+    .container{
+        padding:0;
+    }
+}
+@media(max-width:300px){
+    .name{
+        font-size: 1.5rem;
+        padding-left:0.75rem;
+    }
+    .link{
+        padding:0.5rem 1rem ;
+    }
+    .start,.link{
+        font-size: 0.8rem;
+    }
+    .para{
+        font-size: 0.7rem;
+    }
+    .heading{
+        font-size: 1.2rem;
+    }
+}
+@media(max-width:202px){
+    .heading{
+        font-size: 1rem;
+    }
 }

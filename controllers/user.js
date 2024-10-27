@@ -28,3 +28,13 @@ module.exports.signup=async (req,res,next)=>{
         res.redirect("/Signup");
     }
 };
+
+// ---------------------------Logout-------------------------
+module.exports.logout=(req,res,next)=>{
+    req.logout((err)=>{
+        if(err){
+            next(err);
+        }else{
+            res.redirect("/");
+        }
+    })};

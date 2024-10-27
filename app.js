@@ -166,6 +166,11 @@ app.post("/Login", passport.authenticate("local", { failureRedirect: "/Login", f
     res.redirect(`/home/${req.user._id}`);
 });
 
+// --------------------------------------------------------------
+
+// ----------------------LogOut---------------------
+app.get("/Logout",users.logout);
+
 // -------------------------------------------------------------
 
 // -----------------------socket io connection------------------------------
@@ -213,14 +218,14 @@ io.on('connection', (socket) => {
 
 // --------------------------------------------------------------------
 
-// app.all("*",(req,res,next)=>{
-//     next(new ExpressError(404,"page not found"));
-// });
+app.all("*",(req,res,next)=>{
+    next(new ExpressError(404,"page not found"));
+});
 
-// app.use((err,req,res,next)=>{
-//     let {status,message}=err;
-//     res.status(status).send(message);
-// });
+app.use((err,req,res,next)=>{
+    let {status,message}=err;
+    res.status(status).send(message);
+});
 
 
 server.listen(port, () => {

@@ -81,6 +81,7 @@ a{
     padding-left: 0.8rem;
     border: 1px solid #bbbbbb57;
     height: 2rem;
+    width: 50%;
 }
 #contacts-heading-input:focus{
     outline: none;
