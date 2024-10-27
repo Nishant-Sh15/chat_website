@@ -88,5 +88,6 @@ module.exports.delete = async (req, res, next) => {
     conCont.save();
     await Chat.findOneAndDelete({ _id: chat._id });
     await user.save();
-    res.json({ data: "deleted" });
+    res.redirect(`/home/${usrId}`);
+    // res.json({ data: "deleted" });
 }
