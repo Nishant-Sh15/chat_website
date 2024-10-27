@@ -4,7 +4,118 @@
     }
 }
 @media(max-width:850px){
-    /* .heading-chat{
+    .container{
+        grid-template-columns: 0.5fr 2.5fr 3fr;
+    }
+    .heading-chat,.new{
+        font-size: 1.75rem;
+    }
+    #contacts-heading-input{
+        height: 1.75rem;
+    }
+    .contact-img{
+        height: 3rem;
+        width: 3rem;
+    }
+}
+
+@media(max-width:720px){
+    .container{
+        grid-template-columns: 0.25fr 2.2fr 3fr;
+    }
+    .heading-chat,.new{
         font-size: 1.5rem;
-    } */
+    }
+    .contacts-heading-input{
+        height: 1.5rem;
+    }
+    .contact-name{
+        font-size:1.2rem;
+    }
+    .navbar{
+        margin: 5px;
+        padding: 1.5rem 0.6rem;
+    }
+}
+@media(max-width:630px){
+    .heading-chat,.new{
+        font-size: 1.25rem;
+    }
+    .contacts-heading-input{
+        height: 1.25rem;
+    }
+    .contact-name{
+        font-size:1rem;
+    } 
+    .contact-img{
+        height: 2.5rem;
+        width: 2.5rem;
+    }
+    .contact{
+        grid-template-columns: 1fr 3fr 0.5fr;
+    }
+    .icon{
+        font-size: 1.5rem;
+    }
+}
+@media(max-width:570px){
+    .container{
+        grid-template-columns: 0.5fr 5fr;
+    }
+    .chatbox{
+        display: none;
+    }
+    .heading-chat,.new,.icon{
+        font-size: 2rem;
+    }
+    #contacts-heading-input{
+        height: 2rem;
+    }
+    .contact-img{
+        height: 4rem;
+        width: 4rem;
+    }
+    .contact-name{
+        font-size:1.5rem;
+    } 
+}
+@media(max-width:370px){
+    .heading-chat,.new,.icon{
+        font-size: 1.5rem;
+    }
+    #contacts-heading-input{
+        height: 1.2rem;
+    }
+    .contact-img{
+        height:3rem;
+        width: 3rem;
+    }
+    .contact-name{
+        font-size:1.2rem;
+    } 
+}
+@media(max-width:270px){
+    .container{
+        grid-template-columns: 0.3fr 5.2fr;
+    }
+    .boxes{
+        padding: 0;
+    }
+    .navbar{
+        margin:5px;
+        padding: 1.5rem 0.3rem;
+    }
+    .heading-chat,.new,.icon{
+        font-size: 1.25rem;
+    }
+    #contacts-heading-input{
+        height: 1.1rem;
+    }
+    .contact-img{
+        height:2.5rem;
+        width: 2.5rem;
+    }
+    .contact-name{
+        font-size:1.1rem;
+    } 
 }

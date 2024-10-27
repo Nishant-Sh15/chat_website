@@ -1,19 +1,23 @@
 body {
     height: 100vh;
-    overflow: hidden;
+    width: 100vw;
     margin: 0;
-    background-color: #ab70e3;
-    /* display: flex;
-    justify-content: center;
-    align-items:center; */
+    overflow-x: hidden;
+    overflow-y: scroll;
+    scrollbar-width: 0;
+    scrollbar-width: 0;
+    -ms-overflow-style: none;
     display: grid;
     grid-template-rows: 0.5fr 1.5fr 1fr 1fr 0.5fr;
     grid-template-columns: 0.5fr 0.5fr 3fr 1fr;
-    /* position: relative; */
 }
-
+body::-webkit-scrollbar{
+    display: none;
+}
 .purple {
     grid-area: 1/1/3/5;
+    width: 100vw;
+    background-color: #ab70e3;
 }
 
 .white {
@@ -30,9 +34,6 @@ body {
     display: grid;
     grid-template-rows: 0.5fr 1fr;
     grid-template-columns: 1fr;
-
-
-    /* overflow-y: scroll; */
 }
 
 .info {
@@ -49,7 +50,6 @@ body {
     border-radius: 100%;
     height: 9rem;
     width: 9rem;
-    /* margin: 1rem; */
 }
 
 .username {
@@ -70,8 +70,6 @@ body {
 
 .posts {
     height: 100%;
-    /* grid-area: 4/2/7/3; */
-    /* grid-area: 2/1/3/2; */
     grid-row: 2/3;
     overflow-y: scroll;
     display: grid;
@@ -80,9 +78,6 @@ body {
     overflow-y: scroll;
     scrollbar-width: none;
     -ms-overflow-style: none;
-    /* padding: 1rem; */
-    /* display: flex;
-    justify-content: center; */
 }
 
 .posts::-webkit-scrollbar {
@@ -96,7 +91,6 @@ body {
     display: flex;
     flex-wrap: wrap;
     padding: 1rem;
-    /* grid-template-columns: 1fr 1fr 1fr; */
     overflow-y: scroll;
     scrollbar-width: none;
     -ms-overflow-style: none;
@@ -144,4 +138,32 @@ body {
 a {
     text-decoration: none;
     color: grey;
+}
+
+
+@media(max-width:1200px){
+    body{
+        grid-template-columns: 0.25fr 0.25fr 4fr 0.5fr;
+    }
+}
+@media(max-width:900px){
+    .posts{
+        grid-template-columns: 0.5fr 3fr 0.5fr ;
+    }
+}
+@media(max-width:500px){
+    .post{
+        height: 4rem;
+        width: 4rem;
+    }
+}
+@media(max-width:400px){
+    .img{
+        height:8rem;
+        width: 8rem;
+        top: -2rem;
+    }
+    .more{
+        right: -2.4rem;
+    }
 }

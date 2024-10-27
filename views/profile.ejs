@@ -27,20 +27,20 @@
             <!-- home -->
             <a href="/home/<%=user._id%>"><i class="fa-solid fa-house icon"></i></a>
             <!-- stories/status -->
-            <a href="#"><i class="fa-solid fa-comment icon"></i></a>
+            <!-- <a href="#"><i class="fa-solid fa-comment icon"></i></a> -->
             <!-- archived chats -->
-            <a href="#"><i class="fa-solid fa-folder-plus icon"></i></a>
+            <!-- <a href="#"><i class="fa-solid fa-folder-plus icon"></i></a> -->
             <!-- pinned chats -->
-            <a href="#"><i class="fas fa-thumbtack icon"></i></a>
+            <!-- <a href="#"><i class="fas fa-thumbtack icon"></i></a> -->
             <!-- starred message -->
-            <a href="#"><i class="fa-solid fa-star icon"></i></a>
+            <!-- <a href="#"><i class="fa-solid fa-star icon"></i></a> -->
             <!-- settings -->
             <a href="/profile/my/<%=user._id%>"><i class="fa-solid fa-gear icon"></i></a>
         </div>
 
         <!-- profile -->
         <div class="user-profile">
-            
+
             <div class="user">
                 <!--profile  -->
                 <div class="profile">
@@ -50,8 +50,12 @@
                         </div>
                         <div class="description">
                             <div>
-                                <p class="user-name"><%=con.username%></p>
-                                <p class="user-bio"><%=con.bio%></p>
+                                <p class="user-name">
+                                    <%=con.username%>
+                                </p>
+                                <p class="user-bio">
+                                    <%=con.bio%>
+                                </p>
                                 <a href="/newChat/<%=user._id%>/<%=con._id%>" id="start-chat">message</a>
                             </div>
                             <!-- <div>blooking cool</div> -->
@@ -66,13 +70,13 @@
             <!-- posts -->
             <div class="posts">
                 <div class="post-div">
-                    <%for(let i=0;i<con.posts.length;i++){%>
-                        <div class="post-img">
+                    <div class="post-img">
+                        <%for(let i=0;i<con.posts.length;i++){%>
                             <img src="<%=con.posts[i].url%>" alt="" class="img">
-                        </div>
-                    <%}%>
+                        <%}%>
+                    </div>
                 </div>
-                
+
             </div>
         </div>
 

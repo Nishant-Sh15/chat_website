@@ -1,0 +1,52 @@
+@media(max-width:850px) {
+    .container {
+        grid-template-columns: 0.5fr 2.2fr 3.5fr;
+    }
+}
+
+@media(max-width:570px) {
+    .container {
+        grid-template-columns: 0.5fr 5fr;
+    }
+
+    .contacts {
+        display: none;
+    }
+
+    .chatbox {
+        grid-column: 2/3;
+        display: grid;
+        grid-template-rows: repeat(12, 1fr);
+        grid-template-columns: 1fr;
+    }
+    .chatbox-heading{
+        padding: 0.25rem 1rem;
+    }
+}
+@media(max-width:470px){
+    .chat-box-img{
+        height: 2.5rem;
+        width: 2.5rem;
+    }
+    .chatbox-heading p{
+        font-size: 1.75rem;
+    }
+    .container{
+        grid-template-columns: 0.25fr 6fr ;
+    }
+    .icon{
+        font-size: 1.5rem;
+    }
+    .boxes{
+        padding: 0;
+    }
+    .navbar{
+        margin: 5px;
+        padding: 1.5rem 0.6rem;
+    }
+}
+@media(max-width:370px){
+    .navbar{
+        padding: 1.5rem 0.3rem;
+    }
+}
